@@ -36,13 +36,25 @@
         player.skipTo(event.target.value);
    });
     
+
+   // the two outtermost lines tell the control's range input to update every 1000 milliseconds (every second)//    
    setInterval( () => {
+    //execute a return statement only if the song is playing//   
     if (player.playState !== 'playing') { return; }  
+    //get part and whole and calculate percentage//   
     const currentTime = player.getTime();
     const duration = player.getDuration();
-    const percent = (currentTime / duration) * 100;
-    $('#time-control .current-time').text( currentTime );   
+    const percent = (currentTime / duration) * 100;  
+    //display current time// 
+    $('#time-control .current-time').text( currentTime ); 
+    //set the input's value to percent//  
     $('#time-control input').val(percent);
+    //display total time//
+    $('#time-control .total-time').text( duration );
    }, 1000);
-
+    
+    
+    $('#volume-control input').on('input', function (event) {
+        player.setVolume(event.target.value);
+   });
 }
