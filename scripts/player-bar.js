@@ -1,3 +1,4 @@
+
 // what does player refer to? Is it the js file?// 
 
 {
@@ -35,6 +36,7 @@
         player.skipTo(event.target.value);
    });
     
+
    // the two outtermost lines tell the control's range input to update every 1000 milliseconds (every second)//    
    setInterval( () => {
     //execute a return statement only if the song is playing//   
@@ -55,5 +57,4 @@
     $('#volume-control input').on('input', function (event) {
         player.setVolume(event.target.value);
    });
-
 }
